@@ -30,6 +30,10 @@ chain.appendTransform((code, filename, next) => {
 });
 ```
 
+This module is also my first attempt at auto generating documentation using [documentation.js](github.com/documentationjs/documentation) and JSDoc.
+
+HTML Documentation: http://jamestalmage.github.io/transform-chain/
+
 ## API
 
 ### TransformChain
