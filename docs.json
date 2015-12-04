@@ -1,0 +1,7 @@
+{
+  "order": [
+	"TransformChain",
+	"transformCallback",
+	"Transform"
+  ]
+}

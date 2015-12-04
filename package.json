@@ -1,0 +1,45 @@
+{
+  "name": "transform-chain",
+  "version": "0.0.0",
+  "description": "My luminous module",
+  "license": "MIT",
+  "repository": "jamestalmage/require-wrap",
+  "author": {
+    "name": "James Talmage",
+    "email": "james@talmage.io",
+    "url": "github.com/jamestalmage"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "xo && nyc --reporter=lcov --reporter=text ava",
+    "markdown": "documentation -c docs.json transform-chain.js -f md > foo.md",
+    "html": "documentation -c docs.json transform-chain.js -o docs -f html"
+  },
+  "main": "transform-chain.js",
+  "files": [
+    "transform.js",
+    "transform-chain.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "fn-name": "^2.0.1",
+    "is-regexp": "^1.0.0",
+    "multimatch": "^2.1.0"
+  },
+  "devDependencies": {
+    "ava": "github:jamestalmage/ava#e0f31e84090a62439296f12f1643741be55aa9b7",
+    "debug": "^2.2.0",
+    "documentation": "github:documentationjs/documentation#d069b6a40ba46f31d19f9dd0f40b819d13543f10",
+    "nyc": "^4.0.1",
+    "xo": "^0.11.2"
+  },
+  "xo": {
+    "ignores": [
+      "test/*"
+    ]
+  }
+}
