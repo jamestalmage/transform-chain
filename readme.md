@@ -1,4 +1,4 @@
-# transform-chain [![Build Status](https://travis-ci.org/jamestalmage/transform-chain.svg?branch=master)](https://travis-ci.org/jamestalmage/transform-chain)
+# transform-chain [![Build Status](https://travis-ci.org/jamestalmage/transform-chain.svg?branch=master)](https://travis-ci.org/jamestalmage/transform-chain) [![Coverage Status](https://coveralls.io/repos/jamestalmage/transform-chain/badge.svg?branch=master&service=github)](https://coveralls.io/github/jamestalmage/transform-chain?branch=master)
 
 > Build a chain of transforms
 
