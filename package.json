@@ -1,7 +1,7 @@
 {
   "name": "transform-chain",
   "version": "0.0.0",
-  "description": "My luminous module",
+  "description": "Build a chain of transforms",
   "license": "MIT",
   "repository": "jamestalmage/require-wrap",
   "author": {
@@ -14,8 +14,9 @@
   },
   "scripts": {
     "test": "xo && nyc --reporter=lcov --reporter=text ava",
-    "markdown": "documentation -c docs.json transform-chain.js -f md > foo.md",
-    "html": "documentation -c docs.json transform-chain.js -o docs -f html"
+    "markdown": "documentation -c ./docs.json transform-chain.js -f md > foo.md",
+    "html": "documentation -c ./docs.json transform-chain.js -o docs -f html",
+    "readme": "documentation-readme -s \"API\" -- transform-chain.js"
   },
   "main": "transform-chain.js",
   "files": [
@@ -33,7 +34,8 @@
   "devDependencies": {
     "ava": "github:jamestalmage/ava#e0f31e84090a62439296f12f1643741be55aa9b7",
     "debug": "^2.2.0",
-    "documentation": "github:documentationjs/documentation#d069b6a40ba46f31d19f9dd0f40b819d13543f10",
+    "documentation": "^3.0.4",
+    "documentation-readme": "^2.1.0",
     "nyc": "^4.0.1",
     "xo": "^0.11.2"
   },
