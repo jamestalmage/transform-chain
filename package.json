@@ -17,7 +17,8 @@
     "markdown": "documentation -c ./docs.json transform-chain.js -f md > foo.md",
     "html": "documentation -c ./docs.json transform-chain.js -o docs -f html",
     "readme": "documentation-readme -s \"API\" -- transform-chain.js",
-    "gh-pages": "npm run html && gh-pages -d docs"
+    "gh-pages": "npm run html && gh-pages -d docs",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "main": "transform-chain.js",
   "files": [
@@ -43,6 +44,7 @@
   },
   "xo": {
     "ignores": [
+      "docs/**",
       "test/*"
     ]
   }

@@ -21,7 +21,7 @@ function Transform(opts) {
 	if (opts instanceof Transform) {
 		return opts;
 	}
-	if (!this instanceof Transform) {
+	if (!(this instanceof Transform)) {
 		return new Transform(opts);
 	}
 	if (typeof opts === 'function') {
@@ -134,7 +134,6 @@ function normalizeMatcher(matcher) {
 }
 
 module.exports = Transform;
-
 
 /**
  * A callback that performs a transform

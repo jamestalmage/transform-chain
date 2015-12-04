@@ -101,6 +101,7 @@ test('notifyPostLoadHook', ({context: chain, ... t}) => {
 
 	chain.appendTransform({postLoadHook: file => messages.push([1, file])});
 	chain.appendTransform({postLoadHook: file => messages.push([2, file])});
+	chain.appendTransform((code, file, next) => next(code, file));
 
 	chain.notifyPostLoadHooks('foo.js');
 

@@ -3,6 +3,7 @@ import Transform from '../transform';
 import debug from 'debug';
 
 const log = debug('transform-chain');
+const createTransform = Transform;
 
 // This is here simply to support logging, which is only used in one test.
 // TODO: AVA should have grouping.
@@ -34,6 +35,10 @@ test('matcher can be a function', t => {
 
 	t.false(transform.matches('/bar.js'));
 	t.true(transform.matches('/foo.js'));
+});
+
+test('do not need to use `new` operator', t => {
+	t.true(createTransform({}) instanceof Transform);
 });
 
 test('matches based on extension if no matcher is provided', t => {
@@ -175,7 +180,7 @@ test('will return `code` if the transform throws and there are no additional dow
 
 	const transform = new Transform(() => {
 		t.pass();
-		throw new Error('blah')
+		throw new Error()
 	});
 
 	t.is(transform.transform('foo', 'foo.js', next), 'foo');
