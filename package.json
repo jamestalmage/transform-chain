@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "ava": "github:sindresorhus/ava#8d7e3bb6e73bbea2716b48b5fff59e02c80cb9b1",
+    "coveralls": "^2.11.4",
     "debug": "^2.2.0",
     "documentation": "^3.0.4",
     "documentation-readme": "^2.1.1",
