@@ -34,7 +34,7 @@
     "multimatch": "^2.1.0"
   },
   "devDependencies": {
-    "ava": "github:jamestalmage/ava#e0f31e84090a62439296f12f1643741be55aa9b7",
+    "ava": "github:sindresorhus/ava#8d7e3bb6e73bbea2716b48b5fff59e02c80cb9b1",
     "debug": "^2.2.0",
     "documentation": "^3.0.4",
     "documentation-readme": "^2.1.0",
