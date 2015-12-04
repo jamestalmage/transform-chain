@@ -32,7 +32,7 @@ chain.appendTransform((code, filename, next) => {
 
 This module is also my first attempt at auto generating documentation using [documentation.js](github.com/documentationjs/documentation) and JSDoc.
 
-HTML Documentation: http://jamestalmage.github.io/transform-chain/
+HTML Documentation: <http://jamestalmage.github.io/transform-chain/>
 
 ## API
 
@@ -85,6 +85,18 @@ Transform an input using the matching transforms from the chain.
 
 Returns **Any** The transformed results. Again, this is almost always going to be a string.
 
+### transformCallback
+
+A callback that performs a transform
+
+**Parameters**
+
+-   `code` **string or Any** The input to be transformed.
+-   `filename` **string** The name of the file being transformed.
+-   `next` **Function** Execute the rest of the transform synchronously
+    -   `next.hasNext` **Function** Check if any of the transforms remaining in the chain can handle the file.
+        You can optionally pass a string to change the name of the file.
+
 ### Transform
 
 Create a new transform.
@@ -121,18 +133,6 @@ Perform the transform. Called with the same parameters as `transformCallback`.
 -   `next` **Function** 
 
 Returns **string or Any** 
-
-### transformCallback
-
-A callback that performs a transform
-
-**Parameters**
-
--   `code` **string or Any** The input to be transformed.
--   `filename` **string** The name of the file being transformed.
--   `next` **Function** Execute the rest of the transform synchronously
-    -   `next.hasNext` **Function** Check if any of the transforms remaining in the chain can handle the file.
-        You can optionally pass a string to change the name of the file.
 
 ## License
 
