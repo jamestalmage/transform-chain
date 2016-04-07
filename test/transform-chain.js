@@ -4,7 +4,8 @@ import Transform from '../transform';
 
 test.beforeEach(t => t.context = new Chain());
 
-test('transforms can pass modified code down the remaining chain', ({context: chain, ... t}) => {
+test('transforms can pass modified code down the remaining chain', (t) => {
+	const chain = t.context;
 	chain.appendTransform((code, file, next) => next(code + ' bar', file));
 	chain.appendTransform((code, file, next) => next(code + ' baz', file));
 	chain.appendTransform((code, file, next) => next(code + ' qux', file));
@@ -12,7 +13,8 @@ test('transforms can pass modified code down the remaining chain', ({context: ch
 	t.is(chain.transform('foo', 'foo.js'), 'foo bar baz qux');
 });
 
-test('prepend places transforms at the top of the chain', ({context: chain, ... t}) => {
+test('prepend places transforms at the top of the chain', (t) => { 
+	const chain = t.context;
 	chain.prependTransform((code, file, next) => next(code + ' bar', file));
 	chain.prependTransform((code, file, next) => next(code + ' baz', file));
 	chain.prependTransform((code, file, next) => next(code + ' qux', file));
@@ -20,28 +22,32 @@ test('prepend places transforms at the top of the chain', ({context: chain, ... 
 	t.is(chain.transform('foo', 'foo.js'), 'foo qux baz bar');
 });
 
-test('transforms can modify code after processing the remaining chain', ({context: chain, ... t}) => {
+test('transforms can modify code after processing the remaining chain', (t) => { 
+	const chain = t.context;
 	chain.appendTransform((code, file, next) => 'bar ' + next(code, file));
 	chain.appendTransform((code, file, next) => 'baz ' + next(code, file));
 
 	t.is(chain.transform('foo', 'foo.js'), 'bar baz foo');
 });
 
-test('transforms elect not to continue down the chain', ({context: chain, ... t}) => {
+test('transforms elect not to continue down the chain', (t) => { 
+	const chain = t.context;
 	chain.appendTransform((code, file, next) => 'bar');
 	chain.appendTransform((code, file, next) => 'baz ' + next(code, file));
 
 	t.is(chain.transform('foo', 'foo.js'), 'bar');
 });
 
-test('transforms can change the filename they pass down the chain', ({context: chain, ... t}) => {
+test('transforms can change the filename they pass down the chain', (t) => { 
+	const chain = t.context;
 	chain.appendTransform((code, file, next) => next(code, 'bar-' + file));
 	chain.appendTransform((code, file, next) => next(file + ':' +code, file));
 
 	t.is(chain.transform('foo', 'foo.js'), 'bar-foo.js:foo');
 });
 
-test('only matching transforms are applied', ({context: chain, ... t}) => {
+test('only matching transforms are applied', (t) => { 
+	const chain = t.context;
 	chain.appendTransform(new Transform({
 		transform: (code, file, next) => next(code + ' foo'),
 		match: /foo/
@@ -55,7 +61,8 @@ test('only matching transforms are applied', ({context: chain, ... t}) => {
 	t.is(chain.transform('foo', 'bar.js'), 'foo bar');
 });
 
-test('chain.hasMatch()', ({context: chain, ... t}) => {
+test('chain.hasMatch()', (t) => { 
+	const chain = t.context;
 	chain.appendTransform((code, file, next) => next(code + ' foo', file));
 
 	t.false(chain.hasMatch('foo.coffee'));
@@ -69,7 +76,8 @@ test('chain.hasMatch()', ({context: chain, ... t}) => {
 	t.true(chain.hasMatch('foo.coffee'));
 });
 
-test('next.hasMatch() can be used to determine if there is a downstream match', ({context: chain, ... t}) => {
+test('next.hasMatch() can be used to determine if there is a downstream match', (t) => { 
+	const chain = t.context;
 	t.plan(6);
 
 	chain.appendTransform((code, file, next) => {
@@ -96,7 +104,8 @@ test('next.hasMatch() can be used to determine if there is a downstream match', 
 	chain.transform('foo', 'foo.js');
 });
 
-test('notifyPostLoadHook', ({context: chain, ... t}) => {
+test('notifyPostLoadHook', (t) => { 
+	const chain = t.context;
 	const messages = [];
 
 	chain.appendTransform({postLoadHook: file => messages.push([1, file])});
@@ -105,7 +114,7 @@ test('notifyPostLoadHook', ({context: chain, ... t}) => {
 
 	chain.notifyPostLoadHooks('foo.js');
 
-	t.same(messages, [
+	t.deepEqual(messages, [
 		[1, 'foo.js'],
 		[2, 'foo.js']
 	]);

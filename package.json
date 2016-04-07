@@ -34,14 +34,14 @@
     "multimatch": "^2.1.0"
   },
   "devDependencies": {
-    "ava": "github:sindresorhus/ava#8d7e3bb6e73bbea2716b48b5fff59e02c80cb9b1",
+    "ava": "^0.14.0",
     "coveralls": "^2.11.4",
     "debug": "^2.2.0",
-    "documentation": "^3.0.4",
+    "documentation": "^4.0.0-beta2",
     "documentation-readme": "^2.1.1",
-    "gh-pages": "^0.6.0",
-    "nyc": "^4.0.1",
-    "xo": "^0.11.2"
+    "gh-pages": "^0.11.0",
+    "nyc": "^6.2.1",
+    "xo": "^0.13.0"
   },
   "xo": {
     "ignores": [
